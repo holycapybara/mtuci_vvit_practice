@@ -11,4 +11,4 @@ def task1_2():
 
 
 if __name__ == "__main__":
-    task1_2()
+    task1_1()
