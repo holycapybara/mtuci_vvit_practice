@@ -2,7 +2,7 @@ import os.path
 
 #Task 1
 
-def print_file(input_file, mode) -> None:
+def read_print_file(input_file, mode) -> None:
     """
     Reads the file and prints its content. Can read the entire file or line by line.
 
@@ -12,10 +12,10 @@ def print_file(input_file, mode) -> None:
     :raises ValueError: if the mode is not "full" or "lines"
     :return: None
     """
-    mode_list = {"full", "lines"}
+    mode_list = {"FULL", "LINES"}
 
     if mode not in mode_list:
-        raise ValueError(f'print_file: mode must be on of {mode_list}')
+        raise ValueError(f'print_file: mode must be on of {mode_list}, got "{mode}" instead')
     try:
         with open(input_file, 'r') as In:
             if mode=="full":
@@ -25,26 +25,28 @@ def print_file(input_file, mode) -> None:
                 content = [line[:-1] for line in In]
                 print(*content, sep="\n")
     except FileNotFoundError:
-        print(f'The file you trying to read doesn\'t exist. Please enter a correct file name.')
+        print(f"The file you trying to read doesn't exist. Please enter a correct file name.\n\n")
+        return
 
 
 def task_1() -> None:
     """Reads file 'example.txt' and prints it content."""
-    print_file("example.txt", "line1")
+    read_print_file("exaple.txt", "LINES")
+
 
 #Task 2
 
-
 def write_to_file(filename, content):
     """
-    Creates a file "user_input.txt" and writes content to it. If file already exists, asks if you want to update it
+    Creates a file and writes content to it. If file already exists, asks if you want to update it
 
 
-    :param filename:
-    :param content:
+    :param filename: name of the file
+    :param content: content written to the file
+
     :return: None
     """
-    filename = "user_input.txt"
+
     path = ("./" + filename)
     mode = "A"
     if os.path.isfile(path):
@@ -53,9 +55,16 @@ def write_to_file(filename, content):
                      f'(B) - Update\n')
 
 
+    while mode not in {"A", "B"}:
+        mode = input(f'Invalid input. Please select a correct option.\n'
+                     f'(A) - Recreate\n'
+                     f'(B) - Update\n')
+
+
 
     with open(filename, ["w", "a"][["A", "B"].index(mode)]) as In:
         In.write(content)
+
 
 def task_2() -> None:
     """Requests text and prints it to 'user_input.txt'"""
@@ -63,4 +72,4 @@ def task_2() -> None:
 
 
 if __name__ == "__main__":
-    pass
+    task_1()
