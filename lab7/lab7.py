@@ -2,7 +2,6 @@ class Employee:
     name : str
     id_number : str
 
-
     id_list = []
 
     def __init__(self, name, id_number):
