@@ -1,6 +1,6 @@
 # Лабраторная работа 1
 ## Задача 1
-```
+```python
 n = int(input("Enter number: "))
     for i in range(n):
         print(i+1)
@@ -12,7 +12,7 @@ i увеличенное на 1 каждую итерацию при помощ�
 значение счетчика.
 
 ## Задача 2
-```
+```python
 a = int(input("Enter 1st number: "))
     b = int(input("Enter 2nd number: "))
     print(f'Greater number: {max(a, b)}')
