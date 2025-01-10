@@ -18,7 +18,7 @@ def read_print_file(input_file, mode) -> None:
         raise ValueError(f'print_file: mode must be on of {mode_list}, got "{mode}" instead')
     try:
         with open(input_file, 'r') as In:
-            if mode=="full":
+            if mode=="FULL":
                 content = In.read()
                 print(content)
             else:
