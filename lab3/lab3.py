@@ -2,7 +2,7 @@ import os.path
 
 #Task 1
 
-def read_print_file(input_file, mode) -> None:
+def read_print_file(input_file, mode="LINES") -> None:
     """
     Reads the file and prints its content. Can read the entire file or line by line.
 
@@ -31,7 +31,7 @@ def read_print_file(input_file, mode) -> None:
 
 def task_1() -> None:
     """Reads file 'example.txt' and prints it content."""
-    read_print_file("exaple.txt", "LINES")
+    read_print_file("example.txt", "LINES")
 
 
 #Task 2
